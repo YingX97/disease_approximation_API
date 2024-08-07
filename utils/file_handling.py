@@ -12,9 +12,7 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
         storage_client = storage.Client(project=os.getenv('GOOGLE_CLOUD_PROJECT'))
         bucket = storage_client.bucket(bucket_name)
         blob = bucket.blob(source_blob_name)
-        print(f'downloading {source_blob_name} to {destination_file_name}')
         blob.download_to_filename(destination_file_name)
-        print('done')
 
 def process_h5_file(file_path, disease_keyword, compute_func, *args):
     bucket_name = os.getenv('GOOGLE_CLOUD_BUCKET')

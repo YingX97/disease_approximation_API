@@ -202,8 +202,9 @@ def get_metadata(disease_keyword='', unique_id_list=[]):
                 item = {
                     'unique_id': unique_id,
                     'disease': disease,
+                    'dataset_id': dataset_id,
+                    'dataset_title': metadata['dataset_title'], 
                     'cell_type_number': len(metadata['cell_types']),
-                    'dataset_id': dataset_id, 
                     'collection_name': metadata['collection_name'],
                     'unit': metadata['unit'],
                     'log_transformed': metadata['log_transformed'],

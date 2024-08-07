@@ -18,7 +18,6 @@ def differential_cell_type_abundance():
     
     if len(matching_datasets) == 0:
         return []
-
     dataset_ids = [d['dataset_id'] for d in matching_datasets]
     diseases = [d['disease'] for d in matching_datasets]
     
