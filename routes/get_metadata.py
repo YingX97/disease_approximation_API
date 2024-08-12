@@ -8,13 +8,14 @@ import os
 
 load_dotenv()
 
-get_metadata_bp = Blueprint('metadata', __name__)
+get_metadata_bp = Blueprint("metadata", __name__)
 
-@get_metadata_bp.route('/metadata', methods=['GET'])
+
+@get_metadata_bp.route("/metadata", methods=["GET"])
 def get_metadata_route():
-    disease_keyword = request.args.get('disease_keyword', default='', type=str)
+    disease_keyword = request.args.get("disease_keyword", default="", type=str)
     all_results = get_metadata(disease_keyword)
-    
+
     # Convert the list of OrderedDict to JSON string to preserve the order
     response_json = json.dumps(all_results, ensure_ascii=False, indent=4)
-    return Response(response_json, mimetype='application/json')
+    return Response(response_json, mimetype="application/json")
