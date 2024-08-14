@@ -15,13 +15,27 @@ diff_gene_expression_bp = Blueprint("differential_gene_expression", __name__)
 @diff_gene_expression_bp.route("/differential_gene_expression", methods=["POST"])
 def differential_gene_expression():
     disease_keyword = request.args.get("disease_keyword", default="", type=str)
-    id_list = request.args.get(
-        "unique_ids", default="", type=str
-    )  # comma-separated unique ids
+    unique_ids = request.args.get("unique_ids", default="", type=str)  # comma-separated unique ids
     cell_type_keyword = request.args.get("cell_type_keyword", default="", type=str)
     top_n = int(request.args.get("top_n", default=10, type=int))
 
-    matching_datasets = get_metadata(disease_keyword, id_list.split(","))
+    matching_datasets = get_metadata(disease_keyword, "", unique_ids.split(","))
+
+    # Ensure only one of the keywords is provided, or neither
+    if disease_keyword and unique_ids:
+        return Response(
+            json.dumps({"error": "Please provide either 'disease_keyword' or 'unique_ids', not both."}),
+            status=400,
+            mimetype="application/json"
+        )
+        
+    # Ensure either disease_keyword or unique_ids is provided
+    if not disease_keyword and not unique_ids:
+        return Response(
+            json.dumps({"error": "Either 'disease_keyword' or 'unique_ids' must be provided."}),
+            status=400,
+            mimetype="application/json"
+        )
 
     if len(matching_datasets) == 0:
         return []

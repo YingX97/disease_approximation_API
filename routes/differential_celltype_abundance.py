@@ -14,10 +14,24 @@ diff_celltype_abundance_bp = Blueprint("differential_celltype_abundance", __name
 @diff_celltype_abundance_bp.route("/differential_cell_type_abundance", methods=["POST"])
 def differential_cell_type_abundance():
     disease_keyword = request.args.get("disease_keyword", default="", type=str)
-    id_list = request.args.get(
-        "unique_ids", default="", type=str
-    )  # comma-separated unique ids
-    matching_datasets = get_metadata(disease_keyword, id_list.split(","))
+    unique_ids = request.args.get("unique_ids", default="", type=str)
+    matching_datasets = get_metadata(disease_keyword, "", unique_ids.split(","))
+    
+     # Ensure only one of the keywords is provided, or neither
+    if disease_keyword and unique_ids:
+        return Response(
+            json.dumps({"error": "Please provide either 'disease_keyword' or 'unique_ids', not both."}),
+            status=400,
+            mimetype="application/json"
+        )
+        
+    # Ensure either disease_keyword or unique_ids is provided
+    if not disease_keyword and not unique_ids:
+        return Response(
+            json.dumps({"error": "Either 'disease_keyword' or 'unique_ids' must be provided."}),
+            status=400,
+            mimetype="application/json"
+        )
 
     if len(matching_datasets) == 0:
         return []
