@@ -77,7 +77,7 @@ def compute_diff_cell_abundance(adata, disease_keyword, dataset_id):
 
 
 def compute_diff_expression(
-    adata, disease_keyword, dataset_id, unit, log_transformed, N, cell_type_keyword
+    adata, disease_keyword, dataset_id, unit, log_scaled, N, cell_type_keyword
 ):
     """
     Computes the differential cell type abundance for a given dataset.
@@ -205,11 +205,11 @@ def compute_diff_expression(
                             ("condition", "disease"),
                             ("condition_baseline", "normal"),
                             ("regulation", regulation),
-                            ("feature_name", gene_name),
+                            ("gene", gene_name),
                             ("unit", unit),
                             ("normal_expr", normal_expr[idx]),
                             ("disease_expr", disease_expr[idx]),
-                            ("log_transformed", log_transformed),
+                            ("log_scaled", log_scaled),
                             ("log2_fc", log2_fc[idx]),
                             ("normal_fraction", normal_fraction[idx]),
                             ("disease_fraction", disease_fraction[idx]),
@@ -228,47 +228,51 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
 
     # Filter by cell type keyword if provided
     if cell_type_keyword != "":
-        print("here ==== 1")
-        pattern = re.compile(rf'\b{re.escape(cell_type_keyword.lower())}\b', re.IGNORECASE)
+        pattern = re.compile(
+            rf"\b{re.escape(cell_type_keyword.lower())}\b", re.IGNORECASE
+        )
         for dataset_id in manifest:
             metadata = manifest[dataset_id]
             if "cell_types" in metadata:
-                 # Exact match, considering word boundaries
-                matching_cell_types = [cell_type for cell_type in metadata["cell_types"]
-                    if pattern.search(cell_type.lower())]
+                # Exact match, considering word boundaries
+                matching_cell_types = [
+                    cell_type
+                    for cell_type in metadata["cell_types"]
+                    if pattern.search(cell_type.lower())
+                ]
                 # Only append the item if there is a valid match with the cell_type_keyword
                 if matching_cell_types:
                     item = {
-                        "unique_id": metadata["ids"][0],
+                        "uid": metadata["ids"][0],
                         "disease": metadata["diseases"],
                         "dataset_id": dataset_id,
                         "dataset_title": metadata["dataset_title"],
                         "collection_name": metadata["collection_name"],
-                        "matching_cell_types": matching_cell_types,
-                        "all_cell_types": metadata["cell_types"],
+                        # "matched_cell_types": matching_cell_types,
+                        "cell_types": metadata["cell_types"],
                         "unit": metadata["unit"],
-                        "log_transformed": metadata["log_transformed"],
+                        "log_scaled": metadata["log_scaled"],
                         "has_normal_baseline": metadata["has_normal_baseline"],
                     }
                     result.append(item)
     # Filter by disease keyword if provided
     else:
-        print("here ==== 2")
         for dataset_id in manifest:
             metadata = manifest[dataset_id]
             if "diseases" in metadata:
-                for unique_id, disease in zip(metadata['ids'], metadata['diseases']):
+                for unique_id, disease in zip(metadata["ids"], metadata["diseases"]):
                     item = {
-                        'unique_id': unique_id,
-                        'disease': disease,
-                        'dataset_id': dataset_id, 
-                        'collection_name': metadata['collection_name'],
-                        "all_cell_types": metadata["cell_types"],
-                        'unit': metadata['unit'],
-                        'log_transformed': metadata['log_transformed'],
-                        'has_normal_baseline': metadata['has_normal_baseline']
+                        "uid": unique_id,
+                        "disease": disease,
+                        "dataset_id": dataset_id,
+                        "dataset_title": metadata["dataset_title"],
+                        "collection_name": metadata["collection_name"],
+                        "cell_types": metadata["cell_types"],
+                        "unit": metadata["unit"],
+                        "log_scaled": metadata["log_scaled"],
+                        "has_normal_baseline": metadata["has_normal_baseline"],
                     }
-                    if len(unique_ids) > 0 and unique_ids[0] != '':
+                    if len(unique_ids) > 0 and unique_ids[0] != "":
                         if unique_id in unique_ids:
                             result.append(item)
                     else:

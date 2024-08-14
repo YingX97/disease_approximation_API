@@ -63,7 +63,7 @@ def differential_gene_expression():
                         diseases[0],
                         compute_diff_expression,
                         d["unit"],
-                        d["log_transformed"],
+                        d["log_scaled"],
                         top_n,
                         cell_type_keyword,
                     )
