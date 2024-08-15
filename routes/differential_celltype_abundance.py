@@ -16,21 +16,27 @@ def differential_cell_type_abundance():
     disease_keyword = request.args.get("disease_keyword", default="", type=str)
     unique_ids = request.args.get("unique_ids", default="", type=str)
     matching_datasets = get_metadata(disease_keyword, "", unique_ids.split(","))
-    
-     # Ensure only one of the keywords is provided, or neither
+
+    # Ensure only one of the keywords is provided, or neither
     if disease_keyword and unique_ids:
         return Response(
-            json.dumps({"error": "Please provide either 'disease_keyword' or 'unique_ids', not both."}),
+            json.dumps(
+                {
+                    "error": "Please provide either 'disease_keyword' or 'unique_ids', not both."
+                }
+            ),
             status=400,
-            mimetype="application/json"
+            mimetype="application/json",
         )
-        
+
     # Ensure either disease_keyword or unique_ids is provided
     if not disease_keyword and not unique_ids:
         return Response(
-            json.dumps({"error": "Either 'disease_keyword' or 'unique_ids' must be provided."}),
+            json.dumps(
+                {"error": "Either 'disease_keyword' or 'unique_ids' must be provided."}
+            ),
             status=400,
-            mimetype="application/json"
+            mimetype="application/json",
         )
 
     if len(matching_datasets) == 0:
@@ -46,16 +52,17 @@ def differential_cell_type_abundance():
 
     # List all files in the bucket directory
     storage_client = storage.Client(project=os.getenv("GOOGLE_CLOUD_PROJECT"))
-    blobs = storage_client.list_blobs(
+    files = storage_client.list_blobs(
         os.getenv("GOOGLE_CLOUD_BUCKET"), prefix=h5_files_directory
     )
 
-    for blob in blobs:
-        if blob.name.endswith(".h5"):
-            dataset_id = str(blob.name).split("/")[-1].replace(".h5", "")
+    for file in files:
+        if file.name.endswith(".h5"):
+            dataset_id = str(file.name).split("/")[-1].replace(".h5", "")
             if dataset_id in dataset_ids:
+                index = dataset_ids.index(dataset_id)
                 result = process_h5_file(
-                    blob.name, diseases[0], compute_diff_cell_abundance
+                    file.name, diseases[index], compute_diff_cell_abundance
                 )
                 if result is not None:
                     all_results.extend(result)

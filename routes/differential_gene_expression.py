@@ -40,6 +40,7 @@ def differential_gene_expression():
     if len(matching_datasets) == 0:
         return []
 
+    dataset_ids = [d["dataset_id"] for d in matching_datasets]
     diseases = [d["disease"] for d in matching_datasets]
 
     h5_files_directory = (
@@ -56,11 +57,11 @@ def differential_gene_expression():
     for file in files:
         if file.name.endswith(".h5"):
             dataset_id = str(file.name).split("/")[-1].replace(".h5", "")
-            for d in matching_datasets:
+            for index, d in enumerate(matching_datasets):
                 if dataset_id == d["dataset_id"]:
                     result = process_h5_file(
                         file.name,
-                        diseases[0],
+                        diseases[index],
                         compute_diff_expression,
                         d["unit"],
                         d["log_scaled"],
