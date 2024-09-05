@@ -16,14 +16,21 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
         blob.download_to_filename(destination_file_name)
 
 
-def process_h5_file(file_path, disease_keyword, compute_func, *args):
+def process_h5_file(file_path, compute_func, *args):
     bucket_name = os.getenv("GOOGLE_CLOUD_BUCKET")
     local_path = f"/tmp/{os.path.basename(file_path)}"
     download_blob(bucket_name, file_path, local_path)
 
     app = scquill.Approximation()
     app = app.read_h5(local_path)
-    adata = app.to_anndata(groupby=("cell_type", "disease"))
+    
+    # order of the group by columns needs to stay this way
+    adata = app.to_anndata(
+        groupby=(
+            'cell_type', 'tissue', 'tissue_general', 
+            'disease', 'sex', 'development_stage'
+        )
+    )
 
     dataset_id = os.path.basename(file_path).replace(".h5", "")
 
@@ -32,7 +39,4 @@ def process_h5_file(file_path, disease_keyword, compute_func, *args):
     sig = signature(compute_func)
     param_count = len(sig.parameters)
 
-    if param_count == 3:
-        return compute_func(adata, disease_keyword, dataset_id)
-    else:
-        return compute_func(adata, disease_keyword, dataset_id, *args)
+    return compute_func(adata, dataset_id, *args)
