@@ -22,6 +22,7 @@ from models.differential_cell_type_abundance import (
 )
 
 class DifferentialCellTypeAbundance(Resource):
+    """Get differential cell type abundance for a disease of interes or metadatas"""
     
     @model_exceptions
     def post(self):
@@ -34,7 +35,7 @@ class DifferentialCellTypeAbundance(Resource):
             "unique_ids": unique_ids.split(",") if unique_ids != '' else [],
         }
         
-        # Ensure only one of the keywords is provided, or neither
+        # Ensure only one of the keywords is provided
         if filters["disease"] != '' and len(filters['unique_ids']) > 0:
             return Response(
                 json.dumps({"error": "Please provide either 'disease_keyword' or 'unique_ids', not both."}),

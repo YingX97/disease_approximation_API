@@ -33,10 +33,4 @@ def process_h5_file(file_path, compute_func, *args):
     )
 
     dataset_id = os.path.basename(file_path).replace(".h5", "")
-
-    # TO FIX: hard coded here, might not work in the future.
-    # Check the number of arguments that the compute function expects
-    sig = signature(compute_func)
-    param_count = len(sig.parameters)
-
     return compute_func(adata, dataset_id, *args)

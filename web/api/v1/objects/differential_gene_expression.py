@@ -24,7 +24,8 @@ from models.differential_gene_expression import (
 load_dotenv()
 
 class DifferentialGeneExpression(Resource):
-    
+    """Get differential gene expression base on user filter"""
+     
     @model_exceptions
     def post(self):
         disease_keyword = request.args.get("disease_keyword", default="", type=str)
