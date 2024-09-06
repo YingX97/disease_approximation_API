@@ -17,7 +17,19 @@ def load_gene_mapping():
             gene_to_ensembl[gene_id] = ensembl_id
     return gene_to_ensembl
 
-def compute_highest_measurement(adata, dataset_id, feature):
+def compute_gene_measurement(adata, dataset_id, feature):
+    """
+    Compute all the gene expression measurement for a given feature (gene) from the AnnData object.
+    
+    Parameters:
+        adata (AnnData): The AnnData object containing single-cell RNA-seq data.
+        dataset_id (str): The identifier for the dataset (derived from file name).
+        feature (str): The gene name (symbol) of interest.
+        gene_mapping (dict): A dictionary mapping gene names to Ensembl IDs.
+
+    Returns:
+        list: A list of dictionaries containing information on cell type, tissue, disease, and expression levels of a gene.
+    """
     
     ensembl_id = load_gene_mapping().get(feature.upper())
     if not ensembl_id:
@@ -48,7 +60,18 @@ def compute_highest_measurement(adata, dataset_id, feature):
     
     return results
 
-def zoom_in(expressions, top_n):
+def get_highest_measurement(expressions, top_n):
+    """
+    Summarize and filter the top N highest expressors of a gene from all exp results.
+
+    Parameters:
+        expression (list): A list of expression measurements (dictionaries) across multiple datasets.
+        top_n (int): Number of top expressors to return.
+
+    Returns:
+        list: A list of dictionaries containing the top N disease & cell types combination with the highest gene expression.
+    """
+    
     df = pd.DataFrame(expressions)
     sum_avg_df = df[['disease', 'cell_type', 'average_expression']]\
         .groupby(by=['disease', 'cell_type'])\

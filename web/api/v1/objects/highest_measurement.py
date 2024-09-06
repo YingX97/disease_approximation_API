@@ -7,8 +7,8 @@ from flask_restful import Resource, abort
 
 # helper functions that does the data processing
 from models.highest_measurement import (
-    compute_highest_measurement,
-    zoom_in
+    compute_gene_measurement,
+    get_highest_measurement,
 )
 
 from models.files import (
@@ -19,9 +19,16 @@ from api.v1.exceptions import (
     model_exceptions
 )
 
+# load environment variables from a .env file into the operating system's environment variables.
 load_dotenv()
 
+
 class HighestMeasurement(Resource):
+    """
+    API Resource class to handle requests for the highest expression measurement
+    of a given feature (gene) across multiple all diseases and their datasets . It returns the top n 
+    disease and cell types combination with the highest expression of the specified gene.
+    """
     
     @model_exceptions
     def post(self):
@@ -54,12 +61,12 @@ class HighestMeasurement(Resource):
             if file.name.endswith(".h5"):
                 file_results = process_h5_file(
                     file.name,
-                    compute_highest_measurement,
+                    compute_gene_measurement,
                     feature
                 )
                 all_results.extend(file_results)
         
         # Get the top N highest expressors from all the exp result
-        result = zoom_in(all_results, top_n)
+        result = get_highest_measurement(all_results, top_n)
         
         return result
