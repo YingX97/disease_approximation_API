@@ -21,16 +21,22 @@ def process_h5_file(file_path, compute_func, *args):
     local_path = f"/tmp/{os.path.basename(file_path)}"
     download_blob(bucket_name, file_path, local_path)
 
-    app = scquill.Approximation()
-    app = app.read_h5(local_path)
-    
-    # order of the group by columns needs to stay this way
-    adata = app.to_anndata(
-        groupby=(
-            'cell_type', 'tissue', 'tissue_general', 
-            'disease', 'sex', 'development_stage'
+    try:
+        app = scquill.Approximation()
+        app = app.read_h5(local_path)
+        
+        # order of the group by columns needs to stay this way
+        adata = app.to_anndata(
+            groupby=(
+                'cell_type', 'tissue', 'tissue_general', 
+                'disease', 'sex', 'development_stage'
+            )
         )
-    )
 
-    dataset_id = os.path.basename(file_path).replace(".h5", "")
-    return compute_func(adata, dataset_id, *args)
+        dataset_id = os.path.basename(file_path).replace(".h5", "")
+        return compute_func(adata, dataset_id, *args)
+    
+    except OSError as e:
+        dataset_id = os.path.basename(file_path).replace(".h5", "")
+        print(f"Dataset corrupt: {dataset_id}. Error: {e}")
+        return None 
