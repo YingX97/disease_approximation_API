@@ -28,7 +28,7 @@ class DifferentialGeneExpression(Resource):
      
     @model_exceptions
     def post(self):
-        disease_keyword = request.args.get("disease_keyword", default="", type=str)
+        disease_keyword = request.args.get("disease", default="", type=str)
         unique_ids = request.args.get("unique_ids", default="", type=str)  # comma-separated unique ids
         cell_type_keyword = request.args.get("cell_type", default="", type=str)
         sex_keyword = request.args.get("sex", default="", type=str)
@@ -45,22 +45,6 @@ class DifferentialGeneExpression(Resource):
             "tissue": tissue_keyword,
             "development_stage": stage_keyword
         }
-        
-        # Ensure only one of the keywords is provided, or neither
-        if filters["disease"] != '' and len(filters['unique_ids']) > 0:
-            return Response(
-                json.dumps({"error": "Please provide either 'disease_keyword' or 'unique_ids', not both."}),
-                status=400,
-                mimetype="application/json"
-            )
-            
-        # Ensure either disease_keyword or unique_ids is provided
-        if filters["disease"] == '' and len(filters['unique_ids']) == 0:
-            return Response(
-                json.dumps({"error": "Either 'disease_keyword' or 'unique_ids' must be provided."}),
-                status=400,
-                mimetype="application/json"
-            )
 
         matching_datasets = get_metadata(
             filters["disease"], 

@@ -17,20 +17,20 @@ class Metadata(Resource):
         disease_keyword = request.args.get("disease_keyword", default="", type=str)
         cell_type_keyword = request.args.get("cell_type_keyword", default="", type=str)
 
-        if disease_keyword and cell_type_keyword:
-            return Response(
-                json.dumps({"error": "Please provide either 'disease_keyword' or 'cell_type_keyword'."}),
-                status=400,
-                mimetype="application/json"
-            )
+        # if disease_keyword and cell_type_keyword:
+        #     return Response(
+        #         json.dumps({"error": "Please provide either 'disease_keyword' or 'cell_type_keyword'."}),
+        #         status=400,
+        #         mimetype="application/json"
+        #     )
 
-        # Ensure at least one keyword is provided
-        if not disease_keyword and not cell_type_keyword:
-            return Response(
-                json.dumps({"error": "Please provide either 'disease_keyword' or 'cell_type_keyword'."}),
-                status=400,
-                mimetype="application/json"
-            )
+        # # Ensure at least one keyword is provided
+        # if not disease_keyword and not cell_type_keyword:
+        #     return Response(
+        #         json.dumps({"error": "Please provide either 'disease_keyword' or 'cell_type_keyword'."}),
+        #         status=400,
+        #         mimetype="application/json"
+        #     )
         
         all_results = get_metadata(disease_keyword, cell_type_keyword)
         

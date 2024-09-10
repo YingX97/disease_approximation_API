@@ -114,5 +114,22 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
                         "has_normal_baseline": metadata["has_normal_baseline"],
                     }
                     result.append(item)
+    else:
+        for dataset_id in manifest:
+            metadata = manifest[dataset_id]
+            item = {
+                "uid": metadata["ids"][0],
+                "disease": metadata["disease"],
+                "dataset_id": dataset_id,
+                "dataset_title": metadata["dataset_title"],
+                "collection_name": metadata["collection_name"],
+                "cell_types": metadata["cell_type"],
+                "tissues": metadata["tissue_general"],
+                "unit": metadata["unit"],
+                "log_transformed": metadata["log_transformed"],
+                "has_normal_baseline": metadata["has_normal_baseline"],
+            }
+            result.append(item)
+        
     
     return convert_to_python_types(result)

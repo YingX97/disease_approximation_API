@@ -32,20 +32,43 @@ def compute_diff_expression(
 
     # Set numerical indices on the original adata.obs
     adata.obs["numerical_index"] = np.arange(adata.obs.shape[0])
-
+    
     # Filter the obs to only include rows with the disease_keyword or 'normal'
-    filtered_obs = adata.obs[
-        adata.obs["disease"].str.contains(filters['disease'], case=False)
-        | (adata.obs["disease"] == "normal")
-    ]
+    # filtered_obs = adata.obs[
+    #     adata.obs["disease"].str.contains(filters['disease'], case=False)
+    #     | (adata.obs["disease"] == "normal")
+    # ]
+    
+    filtered_obs = adata.obs
+    
+    
+    # first check when disease keyword is given, make sure that the disease is present in adata
+    # when disease is not present, we want to make sure that there is something not "normal" in adata
+    if 'disease' not in filters:
+        disease_filtered = filtered_obs[
+            ~filtered_obs["disease"].str.contains('normal', case=False)
+        ]["disease"].unique()
+    else:
+        disease_filtered = filtered_obs[
+            filtered_obs["disease"].str.contains(str(filters['disease']), case=False)
+        ]["disease"].unique()
+    
+    if len(disease_filtered) == 0:
+        return []   
 
     # If a keyword is given, filter further
     for key in filters:
-        if key not in ['disease', 'unique_ids'] and filters[key] != '':
-            filtered_obs = filtered_obs[
-                filtered_obs[key].str.contains(str(filters[key]), case=False)
-            ]
-
+        if key not in ['unique_ids'] and filters[key] != '':
+            if key == 'disease':
+                filtered_obs = filtered_obs[
+                    filtered_obs["disease"].str.contains(filters['disease'], case=False)
+                    | (filtered_obs["disease"] == "normal")
+                ]
+            else:
+                filtered_obs = filtered_obs[
+                    filtered_obs[key].str.contains(str(filters[key]), case=False)
+                ]
+    
     if filtered_obs.empty:
         return []
 
@@ -53,9 +76,6 @@ def compute_diff_expression(
         manifest = json.load(f)
 
     dataset_title = manifest[dataset_id]["dataset_title"]
-    disease_name = filtered_obs[
-        filtered_obs["disease"].str.contains(filters['disease'], case=False)
-    ]["disease"].unique()[0]
 
     # Convert filtered_obs['numerical_index'] to a numpy array of integer indices
     integer_indices = filtered_obs["numerical_index"].to_numpy()
@@ -72,7 +92,7 @@ def compute_diff_expression(
         for status in disease_status:
             if status == "normal":
                 continue
-
+                
             # Get the numerical indices for normal and disease
             cell_type_in_normal = filtered_obs[
                 (filtered_obs["cell_type"] == cell_type)
@@ -125,27 +145,26 @@ def compute_diff_expression(
                 gene_name = ensembl_to_gene.get(
                     adata.var_names[idx], adata.var_names[idx]
                 )
+                r = [
+                    ("disease", status),
+                    ("dataset_title", dataset_title),
+                    ("cell_type", cell_type),
+                    ("comparison", "disease vs. normal"),
+                    ("condition", "disease"),
+                    ("condition_baseline", "normal"),
+                    ("regulation", regulation),
+                    ("gene", gene_name),
+                    ("unit", unit),
+                    ("normal_expr", normal_expr[idx]),
+                    ("disease_expr", disease_expr[idx]),
+                    ("log_scaled", log_scaled),
+                    ("log2_fc", log2_fc[idx]),
+                    ("normal_fraction", normal_fraction[idx]),
+                    ("disease_fraction", disease_fraction[idx]),
+                    ("delta_fraction", delta_fraction[idx]),
+                ]
                 result.append(
-                    OrderedDict(
-                        [
-                            ("disease", disease_name),
-                            ("dataset_title", dataset_title),
-                            ("cell_type", cell_type),
-                            ("comparison", "disease vs. normal"),
-                            ("condition", "disease"),
-                            ("condition_baseline", "normal"),
-                            ("regulation", regulation),
-                            ("gene", gene_name),
-                            ("unit", unit),
-                            ("normal_expr", normal_expr[idx]),
-                            ("disease_expr", disease_expr[idx]),
-                            ("log_scaled", log_scaled),
-                            ("log2_fc", log2_fc[idx]),
-                            ("normal_fraction", normal_fraction[idx]),
-                            ("disease_fraction", disease_fraction[idx]),
-                            ("delta_fraction", delta_fraction[idx]),
-                        ]
-                    )
+                    OrderedDict(r)
                 )
 
     return convert_to_python_types(result)
