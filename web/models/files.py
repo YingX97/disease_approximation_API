@@ -38,5 +38,5 @@ def process_h5_file(file_path, compute_func, *args):
     
     except OSError as e:
         dataset_id = os.path.basename(file_path).replace(".h5", "")
-        print(f"Dataset corrupt: {dataset_id}. Error: {e}")
+        print(f"Error processing file {file_path}: {e}")
         return None 

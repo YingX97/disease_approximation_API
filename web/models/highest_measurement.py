@@ -41,10 +41,25 @@ def compute_gene_measurement(adata, dataset_id, feature):
         return []  # Gene not found in this dataset
 
     gene_idx = adata.var_names.get_loc(ensembl_id)  # Get the index of the gene
-    print(dataset_id)
+
     # Extract the expression data for the gene
     gene_expression = adata.layers["average"][:, gene_idx]
     fraction_detected = adata.layers["fraction"][:, gene_idx]
+    
+    try:
+        with open(os.getenv("MANIFEST_FILE"), "r") as f:
+            manifest = json.load(f)
+
+        # Check if dataset_id exists in the manifest
+        if dataset_id not in manifest:
+            raise KeyError(f"Dataset ID {dataset_id} not found in the manifest.")
+        
+        metadata = manifest[dataset_id]
+
+    except (KeyError, FileNotFoundError, json.JSONDecodeError) as e:
+        # Log the error and skip this dataset
+        print(f"Error processing metadata for {dataset_id}: {e}")
+        return None  # Skip this dataset if there are any issues with metadata
     
     # Prepare results
     results = []
@@ -52,6 +67,8 @@ def compute_gene_measurement(adata, dataset_id, feature):
         results.append(
             {
                 "dataset_id": dataset_id,
+                "dataset_title": metadata["dataset_title"],
+                "collection_name": metadata["collection_name"],
                 "cell_type": adata.obs["cell_type"][i],
                 "tissue": adata.obs["tissue"][i],
                 "disease": adata.obs["disease"][i],
@@ -59,6 +76,7 @@ def compute_gene_measurement(adata, dataset_id, feature):
                 "development_stage": adata.obs["development_stage"][i],
                 "average_expression": gene_expression[i],
                 "fraction_detected": fraction_detected[i],
+                "unit": metadata["unit"],
             }
         )
     return results
@@ -77,21 +95,21 @@ def get_highest_measurement(expressions, top_n):
     """
 
     df = pd.DataFrame(expressions)
-    sum_avg_df = (
-        df[["disease", "cell_type", "average_expression"]]
-        .groupby(by=["disease", "cell_type"])
-        .sum()
-        .reset_index()
-    )
-
-    avg_frac_df = (
-        df[["disease", "cell_type", "fraction_detected"]]
-        .groupby(by=["disease", "cell_type"])
+    avg_exp_df = (
+        df[["disease", "cell_type", "unit", "collection_name", "average_expression"]]
+        .groupby(by=["disease", "cell_type", "unit", "collection_name"])
         .mean()
         .reset_index()
     )
 
-    combined = pd.merge(sum_avg_df, avg_frac_df, on=["disease", "cell_type"])
+    avg_frac_df = (
+        df[["disease", "cell_type", "unit", "collection_name", "fraction_detected"]]
+        .groupby(by=["disease", "cell_type", "unit", "collection_name"])
+        .mean()
+        .reset_index()
+    )
+
+    combined = pd.merge(avg_exp_df, avg_frac_df, on=["collection_name", "disease", "cell_type", "unit"])
 
     sorted_results = sorted(
         combined.to_dict("records"), key=lambda x: x["average_expression"], reverse=True

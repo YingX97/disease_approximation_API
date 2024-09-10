@@ -83,7 +83,4 @@ class HighestMeasurement(Resource):
         # Get the top N highest expressors from all the expression results
         result = get_highest_measurement(all_results, top_n)
 
-        # Get the top N highest expressors from all the exp result
-        result = get_highest_measurement(all_results, top_n)
-
         return Response(json.dumps(result), status=200, mimetype="application/json")
