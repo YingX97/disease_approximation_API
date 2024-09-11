@@ -1,0 +1,941 @@
+{
+  "055ca631-6ffb-40de-815e-b931e10718c0": {
+    "soma_joinid": 305,
+    "citation": "Publication: https://doi.org/10.1016/j.isci.2021.103115 Dataset Version: https://datasets.cellxgene.cziscience.com/62d164a5-3645-4ae0-9b86-4a0fdea7028e.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/b9fc3d70-5a72-4479-a046-c2cc1ab19efc",
+    "collection_id": "b9fc3d70-5a72-4479-a046-c2cc1ab19efc",
+    "collection_name": "A Web Portal and Workbench for Biological Dissection of Single Cell COVID-19 Host Responses",
+    "collection_doi": "10.1016/j.isci.2021.103115",
+    "collection_doi_label": "Jin et al. (2021) iScience",
+    "dataset_version_id": "62d164a5-3645-4ae0-9b86-4a0fdea7028e",
+    "dataset_title": "Individual Single-Cell RNA-seq PBMC Data from Wilk et al.",
+    "dataset_h5ad_path": "055ca631-6ffb-40de-815e-b931e10718c0.h5ad",
+    "dataset_total_cell_count": 41305,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "2efaa5a6-c81b-d32f-8ba0-5ff755c42c7d"
+    ],
+    "cell_type": [
+      "platelet",
+      "central memory CD4-positive, alpha-beta T cell",
+      "plasmacytoid dendritic cell, human",
+      "regulatory T cell",
+      "neutrophil",
+      "gamma-delta T cell",
+      "naive B cell",
+      "IgA plasmablast",
+      "naive thymus-derived CD4-positive, alpha-beta T cell",
+      "classical monocyte",
+      "memory B cell",
+      "naive thymus-derived CD8-positive, alpha-beta T cell",
+      "CD16-negative, CD56-bright natural killer cell, human",
+      "erythrocyte",
+      "conventional dendritic cell",
+      "activated CD4-positive, alpha-beta T cell, human",
+      "mucosal invariant T cell",
+      "hematopoietic stem cell",
+      "natural killer cell",
+      "IgG plasmablast",
+      "effector memory CD8-positive, alpha-beta T cell",
+      "double negative thymocyte",
+      "transitional stage B cell",
+      "lymphocyte",
+      "immature neutrophil",
+      "non-classical monocyte"
+    ],
+    "tissue_general": [
+      "blood"
+    ],
+    "disease": [
+      "COVID-19"
+    ],
+    "sex": [
+      "male"
+    ],
+    "development_stage": [
+      "80 year-old and over human stage",
+      "sixth decade human stage",
+      "fifth decade human stage",
+      "seventh decade human stage",
+      "fourth decade human stage",
+      "third decade human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "0f4865d5-8000-4f68-8ac7-f5efea9e5e70": {
+    "soma_joinid": 358,
+    "citation": "Publication: https://doi.org/10.1016/j.immuni.2023.01.002 Dataset Version: https://datasets.cellxgene.cziscience.com/30d6b4f5-1475-4b86-a47c-48609d6706c2.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/5c868b6f-62c5-4532-9d7f-a346ad4b50a7",
+    "collection_id": "5c868b6f-62c5-4532-9d7f-a346ad4b50a7",
+    "collection_name": "The landscape of immune dysregulation in Crohn\u2019s disease revealed through single-cell transcriptomic profiling in the ileum and colon",
+    "collection_doi": "10.1016/j.immuni.2023.01.002",
+    "collection_doi_label": "Kong et al. (2023) Immunity",
+    "dataset_version_id": "30d6b4f5-1475-4b86-a47c-48609d6706c2",
+    "dataset_title": "TI stromal",
+    "dataset_h5ad_path": "0f4865d5-8000-4f68-8ac7-f5efea9e5e70.h5ad",
+    "dataset_total_cell_count": 75695,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "79339b71-45ec-3ad1-463a-f0b76be1f1d0"
+    ],
+    "cell_type": [
+      "glial cell",
+      "pericyte",
+      "fibroblast",
+      "lymphocyte",
+      "endothelial cell",
+      "myofibroblast cell"
+    ],
+    "tissue_general": [
+      "small intestine"
+    ],
+    "disease": [
+      "Crohn disease"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "sixth decade human stage",
+      "fifth decade human stage",
+      "seventh decade human stage",
+      "young adult stage",
+      "fourth decade human stage",
+      "third decade human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "248cf7bf-508b-4c28-a2fd-cabe2ab956aa": {
+    "soma_joinid": 127,
+    "citation": "Publication: https://doi.org/10.1084/jem.20191130 Dataset Version: https://datasets.cellxgene.cziscience.com/c81a9856-b832-4151-a232-b691fd92b98b.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/ff668d5d-5b3f-49ee-a007-ff0664bf35ec",
+    "collection_id": "ff668d5d-5b3f-49ee-a007-ff0664bf35ec",
+    "collection_name": "Single-cell transcriptome analysis reveals differential nutrient absorption functions in human intestine",
+    "collection_doi": "10.1084/jem.20191130",
+    "collection_doi_label": "Wang et al. (2020) Journal of Experimental Medicine",
+    "dataset_version_id": "c81a9856-b832-4151-a232-b691fd92b98b",
+    "dataset_title": "Ileum",
+    "dataset_h5ad_path": "248cf7bf-508b-4c28-a2fd-cabe2ab956aa.h5ad",
+    "dataset_total_cell_count": 5980,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "08e7f907-c654-6daa-e33e-be1e48eb422f",
+      "e4c31e66-6eb5-c7ee-edbc-feb878b68b2e"
+    ],
+    "cell_type": [
+      "progenitor cell",
+      "stem cell",
+      "enteroendocrine cell of colon",
+      "paneth cell of colon",
+      "transit amplifying cell of colon",
+      "enterocyte of colon",
+      "colon goblet cell"
+    ],
+    "tissue_general": [
+      "small intestine"
+    ],
+    "disease": [
+      "adenocarcinoma",
+      "neuroendocrine carcinoma"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "67-year-old human stage",
+      "60-year-old human stage"
+    ],
+    "has_normal_baseline": false
+  },
+  "5ce42b38-d867-487f-9b40-e8bb00b21d0b": {
+    "soma_joinid": 574,
+    "citation": "Publication: https://doi.org/10.1016/j.immuni.2023.01.002 Dataset Version: https://datasets.cellxgene.cziscience.com/8db9570a-3f80-41c9-b927-ae3eb115ba1d.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/5c868b6f-62c5-4532-9d7f-a346ad4b50a7",
+    "collection_id": "5c868b6f-62c5-4532-9d7f-a346ad4b50a7",
+    "collection_name": "The landscape of immune dysregulation in Crohn\u2019s disease revealed through single-cell transcriptomic profiling in the ileum and colon",
+    "collection_doi": "10.1016/j.immuni.2023.01.002",
+    "collection_doi_label": "Kong et al. (2023) Immunity",
+    "dataset_version_id": "8db9570a-3f80-41c9-b927-ae3eb115ba1d",
+    "dataset_title": "colon epithelial",
+    "dataset_h5ad_path": "5ce42b38-d867-487f-9b40-e8bb00b21d0b.h5ad",
+    "dataset_total_cell_count": 97788,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "67eeebf7-f29f-3dc8-19a0-05d2c2fbf619"
+    ],
+    "cell_type": [
+      "brush cell",
+      "epithelial cell",
+      "stem cell",
+      "enterocyte",
+      "paneth cell",
+      "enteroendocrine cell",
+      "goblet cell"
+    ],
+    "tissue_general": [
+      "colon"
+    ],
+    "disease": [
+      "Crohn disease"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "sixth decade human stage",
+      "fifth decade human stage",
+      "seventh decade human stage",
+      "young adult stage",
+      "fourth decade human stage",
+      "third decade human stage",
+      "eighth decade human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "5e717147-0f75-4de1-8bd2-6fda01b8d75f": {
+    "soma_joinid": 598,
+    "citation": "Publication: https://doi.org/10.1016/j.isci.2021.103115 Dataset Version: https://datasets.cellxgene.cziscience.com/442f98ed-a34d-4033-8cde-b8f27f9af212.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/b9fc3d70-5a72-4479-a046-c2cc1ab19efc",
+    "collection_id": "b9fc3d70-5a72-4479-a046-c2cc1ab19efc",
+    "collection_name": "A Web Portal and Workbench for Biological Dissection of Single Cell COVID-19 Host Responses",
+    "collection_doi": "10.1016/j.isci.2021.103115",
+    "collection_doi_label": "Jin et al. (2021) iScience",
+    "dataset_version_id": "442f98ed-a34d-4033-8cde-b8f27f9af212",
+    "dataset_title": "Individual Single-Cell RNA-seq PBMC Data from Schulte-Schrepping et al.",
+    "dataset_h5ad_path": "5e717147-0f75-4de1-8bd2-6fda01b8d75f.h5ad",
+    "dataset_total_cell_count": 90957,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "25bac7a5-312e-9c79-9671-2b027da36c2c"
+    ],
+    "cell_type": [
+      "platelet",
+      "plasmablast",
+      "central memory CD4-positive, alpha-beta T cell",
+      "plasmacytoid dendritic cell, human",
+      "regulatory T cell",
+      "neutrophil",
+      "gamma-delta T cell",
+      "naive B cell",
+      "naive thymus-derived CD4-positive, alpha-beta T cell",
+      "classical monocyte",
+      "memory B cell",
+      "naive thymus-derived CD8-positive, alpha-beta T cell",
+      "CD16-negative, CD56-bright natural killer cell, human",
+      "conventional dendritic cell",
+      "mucosal invariant T cell",
+      "natural killer cell",
+      "effector memory CD8-positive, alpha-beta T cell",
+      "double negative thymocyte",
+      "transitional stage B cell",
+      "lymphocyte",
+      "immature neutrophil",
+      "non-classical monocyte"
+    ],
+    "tissue_general": [
+      "blood"
+    ],
+    "disease": [
+      "COVID-19"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "65-79 year-old human stage",
+      "human aged stage",
+      "sixth decade human stage",
+      "fifth decade human stage",
+      "seventh decade human stage",
+      "fourth decade human stage",
+      "human middle aged stage",
+      "third decade human stage",
+      "eighth decade human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "9b188f26-c8e1-4a78-af15-622a35a371fc": {
+    "soma_joinid": 62,
+    "citation": "Publication: https://doi.org/10.1158/2159-8290.cd-22-0824 Dataset Version: https://datasets.cellxgene.cziscience.com/a2a01c93-aefa-4da2-a688-77eafedaea52.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/a18474f4-ff1e-4864-af69-270b956cee5b",
+    "collection_id": "a18474f4-ff1e-4864-af69-270b956cee5b",
+    "collection_name": "Single-cell RNA sequencing unifies developmental programs of Esophageal and Gastric Intestinal Metaplasia",
+    "collection_doi": "10.1158/2159-8290.cd-22-0824",
+    "collection_doi_label": "Nowicki-Osuch et al. (2023) Cancer Discovery",
+    "dataset_version_id": "a2a01c93-aefa-4da2-a688-77eafedaea52",
+    "dataset_title": "UMAP of Fibroblasts cells",
+    "dataset_h5ad_path": "9b188f26-c8e1-4a78-af15-622a35a371fc.h5ad",
+    "dataset_total_cell_count": 5754,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "76ac7e22-b70b-c219-026c-21e836bb93ce",
+      "934dd80c-02e7-a745-e047-9cff7302f5e1",
+      "94e36f24-220a-8af5-a472-a373490a49e4"
+    ],
+    "cell_type": [
+      "fibroblast"
+    ],
+    "tissue_general": [
+      "esophagus",
+      "stomach"
+    ],
+    "disease": [
+      "gastric intestinal metaplasia",
+      "gastritis",
+      "Barrett esophagus"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "62-year-old human stage",
+      "45-year-old human stage",
+      "53-year-old human stage",
+      "51-year-old human stage",
+      "58-year-old human stage",
+      "68-year-old human stage",
+      "83-year-old human stage",
+      "77-year-old human stage",
+      "48-year-old human stage",
+      "67-year-old human stage",
+      "56-year-old human stage",
+      "55-year-old human stage",
+      "74-year-old human stage",
+      "63-year-old human stage",
+      "42-year-old human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "a5d95a42-0137-496f-8a60-101e17f263c8": {
+    "soma_joinid": 3,
+    "citation": "Publication: https://doi.org/10.1038/s41467-022-29450-x Dataset Version: https://datasets.cellxgene.cziscience.com/d6e742c5-f6e5-42f4-8064-622783542f6b.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/bf325905-5e8e-42e3-933d-9a9053e9af80",
+    "collection_id": "bf325905-5e8e-42e3-933d-9a9053e9af80",
+    "collection_name": "Single-cell Atlas of common variable immunodeficiency shows germinal center-associated epigenetic dysregulation in B-cell responses",
+    "collection_doi": "10.1038/s41467-022-29450-x",
+    "collection_doi_label": "Rodr\u00edguez-Ubreva et al. (2022) Nat Commun",
+    "dataset_version_id": "d6e742c5-f6e5-42f4-8064-622783542f6b",
+    "dataset_title": "Steady-state B cells - scRNA-seq",
+    "dataset_h5ad_path": "a5d95a42-0137-496f-8a60-101e17f263c8.h5ad",
+    "dataset_total_cell_count": 1324,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "5f33b34a-ddde-fdb8-7598-926cee35e16f"
+    ],
+    "cell_type": [
+      "class switched memory B cell",
+      "unswitched memory B cell",
+      "naive B cell"
+    ],
+    "tissue_general": [
+      "blood"
+    ],
+    "disease": [
+      "common variable immunodeficiency"
+    ],
+    "sex": [
+      "male"
+    ],
+    "development_stage": [
+      "26-year-old human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "af8b241a-c72c-4470-b1a4-80e7336c6ab6": {
+    "soma_joinid": 96,
+    "citation": "Publication: https://doi.org/10.1073/pnas.1914143116 Dataset Version: https://datasets.cellxgene.cziscience.com/38c3ef42-c6f1-476a-a50c-b8182e9cc25c.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/f8057c47-fcd8-4fcf-88b0-e2f930080f6e",
+    "collection_id": "f8057c47-fcd8-4fcf-88b0-e2f930080f6e",
+    "collection_name": "Single-cell transcriptomics of the human retinal pigment epithelium and choroid in health and macular degeneration",
+    "collection_doi": "10.1073/pnas.1914143116",
+    "collection_doi_label": "Voigt et al. (2019) Proc. Natl. Acad. Sci. U.S.A.",
+    "dataset_version_id": "38c3ef42-c6f1-476a-a50c-b8182e9cc25c",
+    "dataset_title": "Retina",
+    "dataset_h5ad_path": "af8b241a-c72c-4470-b1a4-80e7336c6ab6.h5ad",
+    "dataset_total_cell_count": 4335,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "483bc412-6f50-0723-6fd2-ab6a4b7d7546",
+      "62e91cfa-97f3-57d1-1cf7-9e052954628c",
+      "69099506-bd40-49f5-183d-1a69433f1ad7"
+    ],
+    "cell_type": [
+      "mature NK T cell",
+      "mast cell",
+      "Schwann cell",
+      "B cell",
+      "pericyte",
+      "retinal pigment epithelial cell",
+      "fibroblast",
+      "macrophage",
+      "melanocyte",
+      "endothelial cell"
+    ],
+    "tissue_general": [
+      "eye"
+    ],
+    "disease": [
+      "age related macular degeneration 7",
+      "basal laminar drusen",
+      "cataract"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "79-year-old human stage",
+      "54-year-old human stage",
+      "82-year-old human stage"
+    ],
+    "has_normal_baseline": false
+  },
+  "b3a5a10f-b1cb-4e8e-abce-bf345448625b": {
+    "soma_joinid": 34,
+    "citation": "Publication: https://doi.org/10.1038/s41590-021-01059-0 Dataset Version: https://datasets.cellxgene.cziscience.com/21523cfc-eefd-4407-b8b1-48bb6f52f7f2.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/93eebe82-d8c3-41bc-a906-63b5b5f24a9d",
+    "collection_id": "93eebe82-d8c3-41bc-a906-63b5b5f24a9d",
+    "collection_name": "Single-cell proteo-genomic reference maps of the hematopoietic system enable the purification and massive profiling of precisely defined cell states",
+    "collection_doi": "10.1038/s41590-021-01059-0",
+    "collection_doi_label": "Triana et al. (2021) Nat Immunol",
+    "dataset_version_id": "21523cfc-eefd-4407-b8b1-48bb6f52f7f2",
+    "dataset_title": "15 leukemic bone marrow donors",
+    "dataset_h5ad_path": "b3a5a10f-b1cb-4e8e-abce-bf345448625b.h5ad",
+    "dataset_total_cell_count": 31586,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "1fa2f1ae-f32d-e07b-e21e-59cef7cca72e",
+      "15e3e624-cc04-2dd1-7c77-2add56e43974"
+    ],
+    "cell_type": [
+      "central memory CD8-positive, alpha-beta T cell",
+      "common dendritic progenitor",
+      "CD8-positive, alpha-beta memory T cell",
+      "basophil mast progenitor cell",
+      "pro-B cell",
+      "megakaryocyte progenitor cell",
+      "pre-natural killer cell",
+      "early promyelocyte",
+      "CD16-positive, CD56-dim natural killer cell, human",
+      "gamma-delta T cell",
+      "lymphoid lineage restricted progenitor cell",
+      "naive B cell",
+      "plasma cell",
+      "precursor B cell",
+      "megakaryocyte-erythroid progenitor cell",
+      "classical monocyte",
+      "CD4-positive, alpha-beta cytotoxic T cell",
+      "naive thymus-derived CD4-positive, alpha-beta T cell",
+      "hematopoietic multipotent progenitor cell",
+      "memory B cell",
+      "naive thymus-derived CD8-positive, alpha-beta T cell",
+      "CD16-negative, CD56-bright natural killer cell, human",
+      "conventional dendritic cell",
+      "late promyelocyte",
+      "mesenchymal cell",
+      "natural killer cell",
+      "fraction A pre-pro B cell",
+      "erythroid progenitor cell",
+      "effector memory CD8-positive, alpha-beta T cell",
+      "class switched memory B cell",
+      "myelocyte",
+      "unswitched memory B cell",
+      "erythroid lineage cell",
+      "plasmacytoid dendritic cell",
+      "non-terminally differentiated cell",
+      "immature B cell",
+      "CD4-positive, alpha-beta memory T cell",
+      "non-classical monocyte"
+    ],
+    "tissue_general": [
+      "bone marrow"
+    ],
+    "disease": [
+      "acute myeloid leukemia",
+      "acute promyelocytic leukemia"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "62-year-old human stage",
+      "45-year-old human stage",
+      "51-year-old human stage",
+      "46-year-old human stage",
+      "71-year-old human stage",
+      "78-year-old human stage",
+      "61-year-old human stage",
+      "44-year-old human stage",
+      "54-year-old human stage",
+      "70-year-old human stage",
+      "66-year-old human stage",
+      "32-year-old human stage",
+      "56-year-old human stage",
+      "55-year-old human stage"
+    ],
+    "has_normal_baseline": false
+  },
+  "bdf69f8d-5a96-4d6f-a9f5-9ee0e33597b7": {
+    "soma_joinid": 60,
+    "citation": "Publication: https://doi.org/10.1126/science.abo1984 Dataset Version: https://datasets.cellxgene.cziscience.com/e1ac034b-76c0-49f8-8ce5-9009247b6cc4.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/e75342a8-0f3b-4ec5-8ee1-245a23e0f7cb",
+    "collection_id": "e75342a8-0f3b-4ec5-8ee1-245a23e0f7cb",
+    "collection_name": "Pathogenic variants damage cell composition and single cell transcription in cardiomyopathies",
+    "collection_doi": "10.1126/science.abo1984",
+    "collection_doi_label": "Reichart et al. (2022) Science",
+    "dataset_version_id": "e1ac034b-76c0-49f8-8ce5-9009247b6cc4",
+    "dataset_title": "DCM/ACM heart cell atlas: Adipocytes",
+    "dataset_h5ad_path": "bdf69f8d-5a96-4d6f-a9f5-9ee0e33597b7.h5ad",
+    "dataset_total_cell_count": 2576,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "0c49902d-02ac-a9bd-2176-3b9d66fe9f00",
+      "e6f4e46d-b510-7e51-3bcc-36ea870c98d6",
+      "e5c40254-233d-cda7-d1d2-bc35fd38eeb6"
+    ],
+    "cell_type": [
+      "adipocyte"
+    ],
+    "tissue_general": [
+      "heart"
+    ],
+    "disease": [
+      "arrhythmogenic right ventricular cardiomyopathy",
+      "dilated cardiomyopathy",
+      "non-compaction cardiomyopathy"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "sixth decade human stage",
+      "infant stage",
+      "fifth decade human stage",
+      "adolescent stage",
+      "seventh decade human stage",
+      "young adult stage",
+      "fourth decade human stage",
+      "third decade human stage",
+      "eighth decade human stage",
+      "child stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "dc30c3ec-46d6-4cd8-8ec1-b544a3d0f503": {
+    "soma_joinid": 82,
+    "citation": "Publication: https://doi.org/10.1038/s41586-019-0903-2 Dataset Version: https://datasets.cellxgene.cziscience.com/3a8f1e5e-181e-4059-b05c-3644d11128c9.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/16c1e722-96ae-4bf6-b408-cd7f8918484f",
+    "collection_id": "16c1e722-96ae-4bf6-b408-cd7f8918484f",
+    "collection_name": "Single nuclei RNA- sequencing from the white matter of individuals with progressive MS and non-neurological controls",
+    "collection_doi": "10.1038/s41586-019-0903-2",
+    "collection_doi_label": "J\u00e4kel et al. (2019) Nature",
+    "dataset_version_id": "3a8f1e5e-181e-4059-b05c-3644d11128c9",
+    "dataset_title": "Oligodendrocytes in MS",
+    "dataset_h5ad_path": "dc30c3ec-46d6-4cd8-8ec1-b544a3d0f503.h5ad",
+    "dataset_total_cell_count": 17799,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "37e3563e-27e3-5dd1-2a82-b8dfabfbb35e"
+    ],
+    "cell_type": [
+      "microglial cell",
+      "oligodendrocyte precursor cell",
+      "progenitor cell",
+      "neuron",
+      "oligodendrocyte",
+      "pericyte",
+      "leukocyte",
+      "macrophage",
+      "endothelial cell",
+      "astrocyte",
+      "vascular associated smooth muscle cell"
+    ],
+    "tissue_general": [
+      "brain"
+    ],
+    "disease": [
+      "multiple sclerosis"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "44-year-old human stage",
+      "37-year-old human stage",
+      "57-year-old human stage",
+      "49-year-old human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "de2c780c-1747-40bd-9ccf-9588ec186cee": {
+    "soma_joinid": 369,
+    "citation": "Publication: https://doi.org/10.1126/sciimmunol.abd1554 Dataset Version: https://datasets.cellxgene.cziscience.com/b0a99b60-7480-4b5c-93c5-11020c36adb2.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/4f889ffc-d4bc-4748-905b-8eb9db47a2ed",
+    "collection_id": "4f889ffc-d4bc-4748-905b-8eb9db47a2ed",
+    "collection_name": "Immunophenotyping of COVID-19 and influenza highlights the role of type I interferons in development of severe COVID-19",
+    "collection_doi": "10.1126/sciimmunol.abd1554",
+    "collection_doi_label": "Lee et al. (2020) Sci. Immunol.",
+    "dataset_version_id": "b0a99b60-7480-4b5c-93c5-11020c36adb2",
+    "dataset_title": "Immunophenotyping of COVID-19 and influenza highlights the role of type I interferons in development of severe COVID-19",
+    "dataset_h5ad_path": "de2c780c-1747-40bd-9ccf-9588ec186cee.h5ad",
+    "dataset_total_cell_count": 59572,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "c8e204c2-af85-7c86-eb89-3ddf9af9e972",
+      "4cde4769-4515-9b68-1167-65765e66f786"
+    ],
+    "cell_type": [
+      "IgG-negative class switched memory B cell",
+      "IgG memory B cell",
+      "intermediate monocyte",
+      "CD8-positive, alpha-beta T cell",
+      "CD4-positive helper T cell",
+      "dendritic cell",
+      "effector CD8-positive, alpha-beta T cell",
+      "erythrocyte",
+      "blood cell",
+      "platelet",
+      "natural killer cell",
+      "effector CD4-positive, alpha-beta T cell",
+      "non-classical monocyte",
+      "classical monocyte"
+    ],
+    "tissue_general": [
+      "blood"
+    ],
+    "disease": [
+      "COVID-19",
+      "influenza"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "62-year-old human stage",
+      "82-year-old human stage",
+      "73-year-old human stage",
+      "68-year-old human stage",
+      "38-year-old human stage",
+      "46-year-old human stage",
+      "78-year-old human stage",
+      "61-year-old human stage",
+      "70-year-old human stage",
+      "67-year-old human stage",
+      "56-year-old human stage",
+      "63-year-old human stage",
+      "75-year-old human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "df287f8d-f50d-4620-ab96-489d559e6adc": {
+    "soma_joinid": 15,
+    "citation": "Publication: https://doi.org/10.1002/pros.24020 Dataset Version: https://datasets.cellxgene.cziscience.com/8c5b3069-dd83-4857-b3b5-02a8d8b81536.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/fbc5881f-1ee3-4ffe-8095-35e15e1a08fc",
+    "collection_id": "fbc5881f-1ee3-4ffe-8095-35e15e1a08fc",
+    "collection_name": "Urethral luminal epithelia are castration-insensitive cells of the proximal prostate",
+    "collection_doi": "10.1002/pros.24020",
+    "collection_doi_label": "Joseph et al. (2020) Prostate",
+    "dataset_version_id": "8c5b3069-dd83-4857-b3b5-02a8d8b81536",
+    "dataset_title": "Urethral luminal epithelia are castration-insensitive cells of the proximal prostate - Human Fibromuscular Stromal Cells",
+    "dataset_h5ad_path": "df287f8d-f50d-4620-ab96-489d559e6adc.h5ad",
+    "dataset_total_cell_count": 1295,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "9b33930d-8c5a-17f1-6567-da3565312c65"
+    ],
+    "cell_type": [
+      "smooth muscle cell of prostate",
+      "fibroblast of connective tissue of prostate"
+    ],
+    "tissue_general": [
+      "prostate gland"
+    ],
+    "disease": [
+      "benign prostatic hyperplasia"
+    ],
+    "sex": [
+      "male"
+    ],
+    "development_stage": [
+      "72-year-old human stage",
+      "74-year-old human stage",
+      "57-year-old human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "e763ed0d-0e5a-4b8e-9514-6da3d9e47956": {
+    "soma_joinid": 32,
+    "citation": "Publication: https://doi.org/10.1016/j.isci.2021.103115 Dataset Version: https://datasets.cellxgene.cziscience.com/6bf7d83d-297b-421e-928b-d5c90d90668f.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/b9fc3d70-5a72-4479-a046-c2cc1ab19efc",
+    "collection_id": "b9fc3d70-5a72-4479-a046-c2cc1ab19efc",
+    "collection_name": "A Web Portal and Workbench for Biological Dissection of Single Cell COVID-19 Host Responses",
+    "collection_doi": "10.1016/j.isci.2021.103115",
+    "collection_doi_label": "Jin et al. (2021) iScience",
+    "dataset_version_id": "6bf7d83d-297b-421e-928b-d5c90d90668f",
+    "dataset_title": "Platelet sub_clusters of COVID-19 Immune Altas: Integration of 5 public COVID-19 PBMC single-cell datasets",
+    "dataset_h5ad_path": "e763ed0d-0e5a-4b8e-9514-6da3d9e47956.h5ad",
+    "dataset_total_cell_count": 7274,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "9cd16c71-64a6-afff-65bd-4bf3f0666a06"
+    ],
+    "cell_type": [
+      "platelet"
+    ],
+    "tissue_general": [
+      "blood"
+    ],
+    "disease": [
+      "COVID-19"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "62-year-old human stage",
+      "53-year-old human stage",
+      "80 year-old and over human stage",
+      "39-year-old human stage",
+      "46-year-old human stage",
+      "48-year-old human stage",
+      "59-year-old human stage",
+      "65-79 year-old human stage",
+      "63-year-old human stage",
+      "eighth decade human stage",
+      "human aged stage",
+      "sixth decade human stage",
+      "73-year-old human stage",
+      "38-year-old human stage",
+      "fifth decade human stage",
+      "61-year-old human stage",
+      "fourth decade human stage",
+      "67-year-old human stage",
+      "75-year-old human stage",
+      "47-year-old human stage",
+      "82-year-old human stage",
+      "78-year-old human stage",
+      "seventh decade human stage",
+      "60-year-old human stage",
+      "human middle aged stage",
+      "third decade human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "f5be4b96-f5a3-4c3d-84ac-6f69daf744d5": {
+    "soma_joinid": 177,
+    "citation": "Publication: https://doi.org/10.1038/s41593-022-01061-1 Dataset Version: https://datasets.cellxgene.cziscience.com/01f1bd07-bed5-4fb5-b24d-1e77311b4b21.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/b0f0b447-ac37-45b0-b1bf-5c0b7d871120",
+    "collection_id": "b0f0b447-ac37-45b0-b1bf-5c0b7d871120",
+    "collection_name": "Single-cell genomic profiling of human dopamine neurons identifies a population that selectively degenerates in Parkinson\u2019s disease",
+    "collection_doi": "10.1038/s41593-022-01061-1",
+    "collection_doi_label": "Kamath et al. (2022) Nat Neurosci",
+    "dataset_version_id": "01f1bd07-bed5-4fb5-b24d-1e77311b4b21",
+    "dataset_title": "Human Endothelial cells 10x scRNA-seq",
+    "dataset_h5ad_path": "f5be4b96-f5a3-4c3d-84ac-6f69daf744d5.h5ad",
+    "dataset_total_cell_count": 14903,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "a5cdb6d1-772e-39a3-9ab9-925556252686",
+      "e650eff0-f445-24a0-d456-c07b755f3435"
+    ],
+    "cell_type": [
+      "endothelial cell"
+    ],
+    "tissue_general": [
+      "brain"
+    ],
+    "disease": [
+      "Lewy body dementia",
+      "Parkinson disease"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "76-year-old human stage",
+      "82-year-old human stage",
+      "83-year-old human stage",
+      "78-year-old human stage",
+      "70-year-old human stage",
+      "89-year-old human stage",
+      "75-year-old human stage",
+      "74-year-old human stage",
+      "90-year-old human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "d8da613f-e681-4c69-b463-e94f5e66847f": {
+    "soma_joinid": 537,
+    "citation": "Publication: https://doi.org/10.1038/s41586-021-03569-1 Dataset Version: https://datasets.cellxgene.cziscience.com/739bae5d-2d6f-4664-a79f-d065610da5ae.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/e4c9ed14-e560-4900-a3bf-b0f8d2ce6a10",
+    "collection_id": "e4c9ed14-e560-4900-a3bf-b0f8d2ce6a10",
+    "collection_name": "A molecular single-cell lung atlas of lethal COVID-19",
+    "collection_doi": "10.1038/s41586-021-03569-1",
+    "collection_doi_label": "Melms et al. (2021) Nature",
+    "dataset_version_id": "739bae5d-2d6f-4664-a79f-d065610da5ae",
+    "dataset_title": "A molecular single-cell lung atlas of lethal COVID-19",
+    "dataset_h5ad_path": "d8da613f-e681-4c69-b463-e94f5e66847f.h5ad",
+    "dataset_total_cell_count": 116313,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "a954ced2-2799-ec7f-65fd-1dff8fd35897"
+    ],
+    "cell_type": [
+      "macrophage",
+      "brush cell of trachebronchial tree",
+      "CD4-positive, alpha-beta T cell",
+      "mast cell",
+      "type II pneumocyte",
+      "fibroblast",
+      "respiratory basal cell",
+      "vascular associated smooth muscle cell",
+      "lung ciliated cell",
+      "dendritic cell",
+      "regulatory T cell",
+      "alveolar macrophage",
+      "alveolar type 2 fibroblast cell",
+      "endothelial cell of artery",
+      "vein endothelial cell",
+      "mesothelial fibroblast",
+      "pericyte",
+      "neuron",
+      "club cell",
+      "lung goblet cell",
+      "tracheobronchial smooth muscle cell",
+      "capillary endothelial cell",
+      "plasma cell",
+      "epithelial cell",
+      "monocyte",
+      "natural killer cell",
+      "B cell",
+      "mucus secreting cell",
+      "CD8-positive, alpha-beta T cell",
+      "endothelial cell"
+    ],
+    "tissue_general": [
+      "lung"
+    ],
+    "disease": [
+      "COVID-19"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "63-year-old human stage",
+      "84-year-old human stage",
+      "78-year-old human stage",
+      "58-year-old human stage",
+      "65-year-old human stage",
+      "68-year-old human stage",
+      "69-year-old human stage",
+      "72-year-old human stage",
+      "80-year-old human stage",
+      "unknown",
+      "79-year-old human stage",
+      "83-year-old human stage",
+      "71-year-old human stage",
+      "70-year-old human stage",
+      "73-year-old human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "42b6a476-c51d-4f8b-b68b-44941b3a11bf": {
+    "soma_joinid": 209,
+    "citation": "Publication: https://doi.org/10.1038/s41467-020-18957-w Dataset Version: https://datasets.cellxgene.cziscience.com/c3189372-fceb-493d-98be-23abe1947253.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/db468083-041c-41ca-8f6f-bf991a070adf",
+    "collection_id": "db468083-041c-41ca-8f6f-bf991a070adf",
+    "collection_name": "Stress-induced RNA\u2013chromatin interactions promote endothelial dysfunction",
+    "collection_doi": "10.1038/s41467-020-18957-w",
+    "collection_doi_label": "Calandrelli et al. (2020) Nat Commun",
+    "dataset_version_id": "c3189372-fceb-493d-98be-23abe1947253",
+    "dataset_title": "scRNA-seq data analysis of endothelium-enriched mesenteric arterial tissues from human donors",
+    "dataset_h5ad_path": "42b6a476-c51d-4f8b-b68b-44941b3a11bf.h5ad",
+    "dataset_total_cell_count": 11243,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "4e9e89df-0001-a023-b86a-708cbdf117a2"
+    ],
+    "cell_type": [
+      "unknown",
+      "endothelial cell of artery"
+    ],
+    "tissue_general": [
+      "vasculature"
+    ],
+    "disease": [
+      "type 2 diabetes mellitus"
+    ],
+    "sex": [
+      "female",
+      "male"
+    ],
+    "development_stage": [
+      "46-year-old human stage",
+      "42-year-old human stage"
+    ],
+    "has_normal_baseline": true
+  },
+  "e067e5ca-e53e-485f-aa8e-efd5435229c8": {
+    "soma_joinid": 467,
+    "citation": "Publication: https://doi.org/10.1038/s41467-022-32972-z Dataset Version: https://datasets.cellxgene.cziscience.com/14e77ad6-38ce-4aad-8385-68b21aff0737.h5ad curated and distributed by CZ CELLxGENE Discover in Collection: https://cellxgene.cziscience.com/collections/b3e2c6e3-9b05-4da9-8f42-da38a664b45b",
+    "collection_id": "b3e2c6e3-9b05-4da9-8f42-da38a664b45b",
+    "collection_name": "Multimodal single cell sequencing implicates chromatin accessibility and genetic background in diabetic kidney disease progression",
+    "collection_doi": "10.1038/s41467-022-32972-z",
+    "collection_doi_label": "Wilson et al. (2022) Nat Commun",
+    "dataset_version_id": "14e77ad6-38ce-4aad-8385-68b21aff0737",
+    "dataset_title": "Human kidney cortex snRNA-seq data from donors with and without diabetic kidney disease",
+    "dataset_h5ad_path": "e067e5ca-e53e-485f-aa8e-efd5435229c8.h5ad",
+    "dataset_total_cell_count": 39176,
+    "unit": "cptt",
+    "log_transformed": false,
+    "ids": [
+      "5c5ac073-f110-dffa-e7c8-7be95d628397"
+    ],
+    "cell_type": [
+      "kidney loop of Henle thin ascending limb epithelial cell",
+      "fibroblast",
+      "endothelial cell",
+      "podocyte",
+      "renal beta-intercalated cell",
+      "leukocyte",
+      "epithelial cell of proximal tubule",
+      "renal principal cell",
+      "kidney loop of Henle thick ascending limb epithelial cell",
+      "renal alpha-intercalated cell",
+      "kidney distal convoluted tubule epithelial cell",
+      "parietal epithelial cell",
+      "mesangial cell"
+    ],
+    "tissue_general": [
+      "kidney"
+    ],
+    "disease": [
+      "type 2 diabetes mellitus"
+    ],
+    "sex": [
+      "male",
+      "female"
+    ],
+    "development_stage": [
+      "52-year-old human stage",
+      "51-year-old human stage",
+      "57-year-old human stage",
+      "74-year-old human stage",
+      "78-year-old human stage"
+    ],
+    "has_normal_baseline": true
+  }
+}

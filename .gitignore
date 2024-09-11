@@ -9,7 +9,9 @@ __init__.py
 
 
 app.yaml
-data/
+
+compression_manifest_18_jul_2024.json
+ensembl_to_gene.csv
 
 .json
 
