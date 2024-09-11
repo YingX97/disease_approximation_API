@@ -11,13 +11,13 @@ from api.v1.exceptions import (
 )
 
 class Metadata(Resource):
-    """Get a list of metadata based on user's../."""
+    """Get a list of metadata based on disease, cell type keywords"""
 
     
     @model_exceptions
     def get(self):
-        disease_keyword = request.args.get("disease_keyword", default="", type=str)
-        cell_type_keyword = request.args.get("cell_type_keyword", default="", type=str)
+        disease_keyword = request.args.get("disease", default="", type=str)
+        cell_type_keyword = request.args.get("cell_type", default="", type=str)
         
         all_results = get_metadata(disease_keyword, cell_type_keyword)
         

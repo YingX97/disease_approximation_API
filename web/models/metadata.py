@@ -73,8 +73,8 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
                     if disease_keyword.lower() in d.lower()
                 ]
                 if len(disease_match) > 0:
-                    for i, uid in enumerate(metadata["ids"]):
-                        disease = metadata["disease"][i]
+                    for i, disease in enumerate(disease_match):
+                        uid = metadata["ids"][i],
                         item = {
                             "uid": uid,
                             "disease": disease,
@@ -111,8 +111,8 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
 
                 # Only append the item if there is a valid match with the cell_type_keyword
                 if len(matching_cell_types) > 0 and len(disease_match) > 0:
-                    for i, uid in enumerate(metadata["ids"]):
-                        disease = metadata["disease"][i]
+                    for i, disease in enumerate(disease_match):
+                        uid = metadata["ids"][i],
                         item = {
                             "uid": uid,
                             "disease": disease,
