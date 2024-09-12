@@ -33,12 +33,6 @@ def compute_diff_expression(
     # Set numerical indices on the original adata.obs
     adata.obs["numerical_index"] = np.arange(adata.obs.shape[0])
     
-    # Filter the obs to only include rows with the disease_keyword or 'normal'
-    # filtered_obs = adata.obs[
-    #     adata.obs["disease"].str.contains(filters['disease'], case=False)
-    #     | (adata.obs["disease"] == "normal")
-    # ]
-    
     filtered_obs = adata.obs
     
     

@@ -11,7 +11,7 @@ def load_gene_mapping():
     gene_to_ensembl = {}
     with open(gene_csv_path, newline="") as csvfile:
         reader = csv.reader(csvfile)
-        next(reader)  # Skip the header
+        next(reader)
         for row in reader:
             ensembl_id, gene_id = row
             gene_to_ensembl[gene_id] = ensembl_id
@@ -34,7 +34,6 @@ def compute_gene_measurement(adata, dataset_id, feature):
 
     ensembl_id = load_gene_mapping().get(feature.upper())
     if not ensembl_id:
-
         raise ValueError(f"Gene {feature} not found in our database.")
     
     if ensembl_id not in adata.var_names:
@@ -81,6 +80,27 @@ def compute_gene_measurement(adata, dataset_id, feature):
         )
     return results
 
+def get_normal_baseline(expressions):
+    results = []
+    for expression in expressions:
+        if expression['disease'] != 'normal':
+            # try to find the normal baseline from expressions
+            normal_baseline = [
+                e for e in expressions
+                if e['disease'] == 'normal'
+                and e['cell_type'] == expression['cell_type']
+                and e['collection_name'] == expression['collection_name']
+            ]
+            if len(normal_baseline) == 0:
+                expression['normal_expression'] = 'N/A'
+                expression['normal_fraction_detected'] = 'N/A'
+            else:
+                expression['normal_expression'] = normal_baseline[0]['average_expression']
+                expression['normal_fraction_detected'] = normal_baseline[0]['fraction_detected']
+            
+            results.append(expression)  
+    
+    return results
 
 def get_highest_measurement(expressions, top_n):
     """
@@ -111,8 +131,10 @@ def get_highest_measurement(expressions, top_n):
 
     combined = pd.merge(avg_exp_df, avg_frac_df, on=["collection_name", "disease", "cell_type", "unit"])
 
+    result = get_normal_baseline(combined.to_dict("records"))
+    
     sorted_results = sorted(
-        combined.to_dict("records"), key=lambda x: x["average_expression"], reverse=True
+        result, key=lambda x: x["average_expression"], reverse=True
     )
     final_result = sorted_results[:top_n]
 

@@ -4,12 +4,13 @@ import json
 from models.utils import *
 
 
-def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
+def get_metadata(
+    disease_keyword="", cell_type_keyword="", tissue_keyword="", unique_ids=[]
+):
     result = []
-
+    
     with open(os.getenv("MANIFEST_FILE"), "r") as f:
         manifest = json.load(f)
-
     # if unique id is provided, ignore disease and cell type keyword
     if len(unique_ids) > 0 and unique_ids[0] != "":
         for dataset_id in manifest:
@@ -23,6 +24,8 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
                         "dataset_title": metadata["dataset_title"],
                         "collection_name": metadata["collection_name"],
                         "cell_types": metadata["cell_type"],
+                        "tissue": metadata["tissue_general"],
+                        "sex": metadata["sex"],
                         "unit": metadata["unit"],
                         "log_transformed": metadata["log_transformed"],
                         "has_normal_baseline": metadata["has_normal_baseline"],
@@ -32,7 +35,7 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
         return convert_to_python_types(result)
 
     # if user specified a cell type keyword, e.g "NK"
-    if cell_type_keyword != "" and disease_keyword == "":
+    if cell_type_keyword != "" and disease_keyword == "" and tissue_keyword == "":
         pattern = re.compile(
             rf"\b{re.escape(cell_type_keyword.lower())}\b", re.IGNORECASE
         )
@@ -56,6 +59,8 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
                             "dataset_title": metadata["dataset_title"],
                             "collection_name": metadata["collection_name"],
                             "cell_types": metadata["cell_type"],
+                            "tissue": metadata["tissue_general"],
+                            "sex": metadata["sex"],
                             "unit": metadata["unit"],
                             "log_transformed": metadata["log_transformed"],
                             "has_normal_baseline": metadata["has_normal_baseline"],
@@ -63,7 +68,7 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
                         result.append(item)
 
     # if user specified a disease keyword, e.g "covid"
-    elif disease_keyword != "" and cell_type_keyword == "":
+    elif disease_keyword != "" and cell_type_keyword == "" and tissue_keyword == "":
         for dataset_id in manifest:
             metadata = manifest[dataset_id]
             if "disease" in metadata:
@@ -74,7 +79,7 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
                 ]
                 if len(disease_match) > 0:
                     for i, disease in enumerate(disease_match):
-                        uid = metadata["ids"][i],
+                        uid = (metadata["ids"][i],)
                         item = {
                             "uid": uid,
                             "disease": disease,
@@ -82,6 +87,36 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
                             "dataset_title": metadata["dataset_title"],
                             "collection_name": metadata["collection_name"],
                             "cell_types": metadata["cell_type"],
+                            "tissue": metadata["tissue_general"],
+                            "sex": metadata["sex"],
+                            "unit": metadata["unit"],
+                            "log_transformed": metadata["log_transformed"],
+                            "has_normal_baseline": metadata["has_normal_baseline"],
+                        }
+                        result.append(item)
+
+    # if user specified a tissue keyword, e.g "lung"
+    elif tissue_keyword != "" and cell_type_keyword == "" and disease_keyword == "":
+
+        pattern = re.compile(rf"\b{re.escape(tissue_keyword.lower())}\b", re.IGNORECASE)
+        for dataset_id in manifest:
+            metadata = manifest[dataset_id]
+            if "tissue_general" in metadata:
+                tissue_match = [
+                    t for t in metadata["tissue_general"] if pattern.search(t.lower())
+                ]
+                if len(tissue_match) > 0:
+                    for i, uid in enumerate(metadata["ids"]):
+                        disease = metadata["disease"][i]
+                        item = {
+                            "uid": uid,
+                            "disease": disease,
+                            "dataset_id": dataset_id,
+                            "dataset_title": metadata["dataset_title"],
+                            "collection_name": metadata["collection_name"],
+                            "cell_types": metadata["cell_type"],
+                            "tissue": metadata["tissue_general"],
+                            "sex": metadata["sex"],
                             "unit": metadata["unit"],
                             "log_transformed": metadata["log_transformed"],
                             "has_normal_baseline": metadata["has_normal_baseline"],
@@ -112,7 +147,7 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
                 # Only append the item if there is a valid match with the cell_type_keyword
                 if len(matching_cell_types) > 0 and len(disease_match) > 0:
                     for i, disease in enumerate(disease_match):
-                        uid = metadata["ids"][i],
+                        uid = (metadata["ids"][i],)
                         item = {
                             "uid": uid,
                             "disease": disease,
@@ -120,6 +155,8 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
                             "dataset_title": metadata["dataset_title"],
                             "collection_name": metadata["collection_name"],
                             "cell_types": metadata["cell_type"],
+                            "tissue": metadata["tissue_general"],
+                            "sex": metadata["sex"],
                             "unit": metadata["unit"],
                             "log_transformed": metadata["log_transformed"],
                             "has_normal_baseline": metadata["has_normal_baseline"],
@@ -130,7 +167,7 @@ def get_metadata(disease_keyword="", cell_type_keyword="", unique_ids=[]):
         for dataset_id in manifest:
             metadata = manifest[dataset_id]
             for i, uid in enumerate(metadata["ids"]):
-                disease = metadata["disease"][i] 
+                disease = metadata["disease"][i]
                 item = {
                     "uid": uid,
                     "disease": disease,

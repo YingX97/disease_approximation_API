@@ -22,27 +22,37 @@ from models.differential_cell_type_abundance import (
 )
 
 class DifferentialCellTypeAbundance(Resource):
-    """Get differential cell type abundance for a disease of interes or metadatas"""
+    """
+    Get differential cell type abundance for a disease or tissue of interest across multiple datasets.
+    
+    This API helps answer questions such as:
+    1. "In COVID-19, what is the differential cell abundance of each cell type between normal and disease states?"
+    2. "Across all diseases affecting the lung, what is the differential cell abundance of each cell type in that tissue between normal and disease states?"
+    """
     
     @model_exceptions
     def post(self):
         disease_keyword = request.args.get("disease", default="", type=str)
-        tissue_keyword = request.args.get("tissue", default="", type=str)
-        unique_ids = request.args.get("unique_ids", default="", type=str)  # comma-separated unique ids
-        
+        cell_type_keyword = request.args.get("cell_type", default="", type=str)
+        # Get unique_ids as a comma-separated string and split it into a list
+        unique_ids_str = request.args.get("unique_ids", default="", type=str)
+        unique_ids = unique_ids_str.split(",") if unique_ids_str else []
+            
         # Gather filters
         filters = {
             "disease": disease_keyword,
-            "tissue": tissue_keyword,
-            "unique_ids": unique_ids.split(",") if unique_ids != '' else [],
+            "cell_type": cell_type_keyword,
+            "unique_ids": unique_ids,
         }
 
         matching_datasets = get_metadata(
             filters["disease"], 
-            "", 
+            filters["cell_type"], 
+            "",
             filters["unique_ids"]
         )
 
+        (matching_datasets)
         if len(matching_datasets) == 0:
             return {"message": "No datasets found satisfying disease and cell type filter"}
 
